@@ -4,23 +4,128 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Docker-Schulung</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/night.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
+		<!-- Anfang Content -->
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<!-- In Markdown trennt "---" die einzelnen Slides -->
+				<section data-markdown>
+					<!-- Struktur -->
+					<!-- 1. Was ist das? -->
+					<!-- 2. Wofür braucht man das? -->
+					<!-- 3. Wofür nutzen wir das im Team? -->
+					<!-- 4. Übungen/praktische Beispiele -->
+
+					<textarea data-template>
+						# Docker-Schulung
+						Erstellt von [Lea Reimann](https://github.com/lkreimann)
+
+						---
+
+						![Erklärung von Docker für Auszubildende durch Google Bard](google-bard-docker.png)
+
+						---
+						## Was ist Docker?
+
+						* Ein Virtualisierungstool
+						* Ein Hilfsmittel zum Erschaffen von Bauplänen (_Images_)
+						* ... und daraus _Container_, die eine isolierte Umgebung für Anwendungen und Tools darstellen
+
+						---
+						## Warum Docker?
+
+						_No more "works on my machine"_
+
+						Mit Docker können Baupläne und Container erschaffen werden, welche Anwendungen und 
+						andere Tools in eine isolierte Umgebung packen und alles installieren, was für die Anwendung bzw. das Tool benötigt wird.
+
+						---
+						## Wie nutze ich Docker?
+
+						Zuerst muss ein Blueprint für die entsprechende Anwendung bzw. den Anwendungsfall in Form einer `Dockerfile` geschrieben werden.
+						Danach gibt es mehrere Befehle, die in einer bestimmten Reihenfolge ausgeführt werden um daraus einen Container zu erzeugen.
+
+						---
+						### `Dockerfile`
+
+						```Dockerfile
+						FROM node:18
+
+						ENTRYPOINT ["node", “index.js"]
+						```
+
+						Es gibt [jede Menge Ausdrücke](https://docs.docker.com/engine/reference/builder/READ), die man in eine Dockerfile schreiben kann,
+						aber es braucht nicht immer sehr viel davon.
+
+						---
+						### `docker build`
+
+						Hierfür braucht es im entsprechenden Verzeichnis eine `Dockerfile`. Bei diesem Befehl kann man auch weitere Parameter angeben. 
+
+						```bash
+						$ docker build -t my-image .
+						```
+
+						---
+						### `docker run`
+
+						... wird benötigt, um das Image zu nutzen und einen Container daaus zu erzeugen.
+						Bei diesem Befehl kann man auch weitere Parameter angeben. 
+
+						```bash
+						$ docker run my-image
+						```
+
+						---
+						### `docker push/pull`
+
+						Um das Image auch außerhalb des eigenen Rechners verwenden zu können,
+						kann dieses mit `docker push` in eine Registry hochgeladen werden (z. B. GitHub Container Registry).
+						Mit `docker pull` kann das Image dann jeweils aus einer Registry auf einen Rechner/Server heruntergeladen werden.
+
+						---
+						## [Demo](https://github.com/freenet-group/docker-beispiele)
+
+						---
+						## Docker bei Retail & ECM
+
+						* maui BKB
+						* maui ONE
+						* maui Infoportal
+						* ...
+
+						---
+						## Weitere Ressourcen
+
+						* [Offizielle Dokumentationsseiten](https://docs.docker.com/) von Docker 
+						* [Info-Seite zu Containern](https://freenetgroup.sharepoint.com/sites/Container-und-Cloud-Docs-Container) vom _Team Container & Cloud_ 
+						---
+						## Quellen
+
+						* [Docker bei Wikipedia](https://de.wikipedia.org/wiki/Docker_(Software))
+						* [_Containers - Explained in 4 Minutes_ bei YouTube](https://www.youtube.com/watch?v=pR-cGS6IGvI)
+
+						---
+						## Vielen Dank für eure Aufmerksamkeit!
+
+						_Präsentation wurde mit [`reveal.js`](https://revealjs.com/) erstellt_
+
+						Für eine Übersicht aller Folien, einfach auf `ESC` drücken
+					</textarea>
+				</section>
 			</div>
 		</div>
 
+		<!-- Ende Content -->
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
