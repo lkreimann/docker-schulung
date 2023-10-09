@@ -1867,3 +1867,9 @@ $notesWidthPercent: 25%;
 @import 'print/pdf.scss';
 @import 'print/paper.scss';
 
+/*********************************************
+ * CUSTOM STYLES
+ *********************************************/
+img[alt='Docker Aufbau'] {
+	max-width: 85% !important;
+}
