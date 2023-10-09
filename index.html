@@ -36,9 +36,9 @@
 						---
 						## Was ist Docker?
 
-						* Ein Virtualisierungstool
-						* Ein Hilfsmittel zum Erschaffen von Bauplänen (_Images_)
-						* ... und daraus _Container_, die eine isolierte Umgebung für Anwendungen und Tools darstellen
+						> "Docker ist eine freie Software zur Isolierung von Anwendungen mit Hilfe von Containervirtualisierung."
+
+						Quelle: Wikipedia
 
 						---
 						## Warum Docker?
@@ -67,23 +67,32 @@
 						aber es braucht nicht immer sehr viel davon.
 
 						---
+
+						![Docker Components](docker-components.webp)
+
+						Quelle: https://blog.knoldus.com/docker-components/
+
+						---
 						### `docker build`
 
-						Hierfür braucht es im entsprechenden Verzeichnis eine `Dockerfile`. Bei diesem Befehl kann man auch weitere Parameter angeben. 
+						Hierfür braucht es im entsprechenden Verzeichnis eine `Dockerfile`.
 
 						```bash
 						$ docker build -t my-image .
 						```
+						
+						Bei diesem Befehl kann man auch [weitere Parameter](https://docs.docker.com/engine/reference/commandline/build/) angeben. 
 
 						---
 						### `docker run`
 
-						... wird benötigt, um das Image zu nutzen und einen Container daaus zu erzeugen.
-						Bei diesem Befehl kann man auch weitere Parameter angeben. 
-
+						... wird benötigt, um das Image zu nutzen und einen Container daraus zu erzeugen.
+						
 						```bash
 						$ docker run my-image
 						```
+
+						Bei diesem Befehl kann man auch [weitere Parameter](https://docs.docker.com/engine/reference/run/) angeben (z. B. Port-Forwarding).
 
 						---
 						### `docker push/pull`
